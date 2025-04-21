@@ -15,22 +15,24 @@ export const PlanetListNavigator = () => {
                     headerShown: true,
                     headerTitle: 'Planet List', 
                     headerStyle: {
-                        backgroundColor: 'rgb(70, 17, 112)',
+                        backgroundColor: 'rgb(0, 0, 0)',
                     },
                     headerTitleAlign: 'center',
                     headerTintColor: '#fff',
+                    headerShadowVisible: false,
                 }} />
             <Stack.Screen
                 name="PlanetDetail"
                 component={PlanetDetailScreen}
                 options={{
                     headerShown: true,
-                    headerTitle: 'Planet List', 
+                    headerTitle: 'Planet Detail', 
                     headerStyle: {
-                        backgroundColor: 'rgb(70, 17, 112)',
+                        backgroundColor: 'rgb(0, 0, 0)',
                     },
                     headerTitleAlign: 'center',
                     headerTintColor: '#fff',
+                    headerShadowVisible: false,
                 }} />
         </Stack.Navigator>
     );
