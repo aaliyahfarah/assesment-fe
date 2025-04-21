@@ -3,6 +3,7 @@ import { getPlanets } from "../../services/PlanetServices";
 import { View, FlatList, ActivityIndicator, Text, StyleSheet } from "react-native";
 import { Planet } from "../../types/Planet";
 import { listStyles } from "./styles";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const PlanetListScreen = () => {
   const [dataPlanets, setDataPlanets] = useState<Planet[]>([]);
@@ -52,8 +53,13 @@ export const PlanetListScreen = () => {
         renderItem={({ item }) => (
           <View style={listStyles.item}>
             <Text style={listStyles.name}>{item.name}</Text>
-            <Text style={listStyles.detail}>Population: {item.population}</Text>
-            <Text style={listStyles.detail}>Climate: {item.climate}</Text>
+            <Text style={listStyles.detail}>
+              <Icon style={listStyles.iconDetail} name="users" />
+              Population: {item.population}
+            </Text>
+            <Text style={listStyles.detail}>
+              <Icon style={listStyles.iconDetail} name="cloud" />
+              Climate: {item.climate}</Text>
           </View>
         )}
         onEndReached={handleLoadMore}

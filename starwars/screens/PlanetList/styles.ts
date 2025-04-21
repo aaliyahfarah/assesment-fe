@@ -7,11 +7,6 @@ export const listStyles = StyleSheet.create({
     backgroundColor: 'rgb(250, 244, 255)',
     flex: 1,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 12,
-  },
   item: {
     backgroundColor: "#fff",
     borderRadius: 10,
@@ -27,21 +22,18 @@ export const listStyles = StyleSheet.create({
   name: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "rgb(70, 17, 112)"
+    color: "rgb(70, 17, 112)",
+    marginBottom: 5,
   },
   detail: {
     fontSize: 14,
     color: "#555",
+    marginBottom:2,
   },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  cardSubtitle: {
-    fontSize: 14,
-    color: '#777',
-    marginTop: 5,
+  iconDetail: {
+    fontSize:12 ,
+    color:"rgb(129, 129, 129)",
+    marginRight: 5,
   },
   loadingFooter: {
     padding: 20,
