@@ -17,3 +17,19 @@ export const getPlanets = async (page: number) => {
     throw error;
   }
 };
+
+export const getPlanetById = async (id: number) => {
+  try {
+    const response = await axios.get(`${BASE_URL_PLANET}/${id}`,
+      {
+        headers: {
+          Accept: 'application/json',
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching planet:", error);
+    throw error;
+  }
+};

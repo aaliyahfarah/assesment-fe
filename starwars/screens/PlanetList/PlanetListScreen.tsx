@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { getPlanets } from "../../services/PlanetServices";
-import { View, FlatList, ActivityIndicator, Text, StyleSheet } from "react-native";
+import { View, FlatList, ActivityIndicator, Text, TouchableOpacity } from "react-native";
 import { Planet } from "../../types/Planet";
 import { listStyles } from "./styles";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from "../../navigation/navigationTypes";
 
-export const PlanetListScreen = () => {
+type PlanetListScreenProps = {
+  navigation: StackNavigationProp<RootStackParamList, 'PlanetList'>;
+};
+
+export const PlanetListScreen: React.FC<PlanetListScreenProps> = ({ navigation }) => {
   const [dataPlanets, setDataPlanets] = useState<Planet[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -13,14 +19,14 @@ export const PlanetListScreen = () => {
   const [isFetchingMore, setIsFetchingMore] = useState(false);
 
   useEffect(() => {
-    fetchData(page);
+    loadPlanet(page);
   }, []);
 
-  const fetchData = async (pageNumber: number) => {
-    const data = await getPlanets(pageNumber);
+  const loadPlanet = async (currentPage: number) => {
+    const data = await getPlanets(currentPage);
     if (data?.results?.length > 0) {
       setDataPlanets(prev => [...prev, ...data.results]);
-      setPage(pageNumber + 1);
+      setPage(currentPage + 1);
       setHasMore(!!data.next);
     } else {
       setHasMore(false);
@@ -32,7 +38,7 @@ export const PlanetListScreen = () => {
   const handleLoadMore = () => {
     if (!isFetchingMore && hasMore) {
       setIsFetchingMore(true);
-      fetchData(page);
+      loadPlanet(page);
     }
   };
 
@@ -51,16 +57,27 @@ export const PlanetListScreen = () => {
         data={dataPlanets}
         keyExtractor={(item, index) => item.name + index}
         renderItem={({ item }) => (
-          <View style={listStyles.item}>
-            <Text style={listStyles.name}>{item.name}</Text>
-            <Text style={listStyles.detail}>
-              <Icon style={listStyles.iconDetail} name="users" />
-              Population: {item.population}
-            </Text>
-            <Text style={listStyles.detail}>
-              <Icon style={listStyles.iconDetail} name="cloud" />
-              Climate: {item.climate}</Text>
-          </View>
+          <TouchableOpacity
+            onPress={() => {
+              const id = item.url.split('/').filter(Boolean).pop();
+              if (id) {
+                navigation.navigate('PlanetDetail', { id });
+              } else {
+                console.log('Invalid ID');
+              }
+            }}
+          >
+            <View style={listStyles.item}>
+              <Text style={listStyles.name}>{item.name}</Text>
+              <Text style={listStyles.detail}>
+                <Icon style={listStyles.iconDetail} name="users" />
+                Population: {item.population}
+              </Text>
+              <Text style={listStyles.detail}>
+                <Icon style={listStyles.iconDetail} name="cloud" />
+                Climate: {item.climate}</Text>
+            </View>
+          </TouchableOpacity>
         )}
         onEndReached={handleLoadMore}
         onEndReachedThreshold={0.5}
