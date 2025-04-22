@@ -86,11 +86,6 @@ export const PlanetDetailScreen = () => {
       <FilmList films={planet.films} />
 
       <View style={{ margin: 15, marginTop: 20 }}>
-        {/* <Button
-          style={ detailStyles.button }
-          title={isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
-          onPress={handleWishlistButtonClick}
-        /> */}
         <TouchableOpacity
           style={detailStyles.button}
           onPress={handleWishlistButtonClick}

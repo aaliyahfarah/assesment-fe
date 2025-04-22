@@ -19,12 +19,6 @@ export const WishlistProvider = ({ children }: { children: ReactNode }) => {
     loadWishlist(); 
   }, []);
 
-  const addToWishlist = async (planet: Planet) => {
-    const updatedWishlist = [...wishlist, planet];
-    await AsyncStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
-    setWishlist(updatedWishlist);
-  };
-
   const removeFromWishlist = async (planet: Planet) => {
     const updatedWishlist = wishlist.filter(item => item.url !== planet.url);
     await AsyncStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
@@ -32,7 +26,7 @@ export const WishlistProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist, loadWishlist }}>
+    <WishlistContext.Provider value={{ wishlist, removeFromWishlist, loadWishlist }}>
       {children}
     </WishlistContext.Provider>
   );
