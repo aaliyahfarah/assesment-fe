@@ -9,7 +9,7 @@ export const filmStyles = StyleSheet.create({
   },
   card: {
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius: 5,
     paddingHorizontal: 15,
     marginBottom: 10,
     marginHorizontal: 15,
@@ -23,7 +23,7 @@ export const filmStyles = StyleSheet.create({
     color: "#fff"
   },
   value: {
-    fontSize: 16,
+    fontSize: 14,
     color: "#fff",
     margin: 10,
   },

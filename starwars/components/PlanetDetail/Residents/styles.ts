@@ -1,15 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const residentStyles = StyleSheet.create({
-  container: {
-    padding: 16,
-    paddingTop: 20,
-    backgroundColor: "rgb(0, 0, 0)",
-    flex: 1,
-  },
   card: {
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius: 5,
     paddingHorizontal: 15,
     marginBottom: 10,
     marginHorizontal: 15,

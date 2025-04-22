@@ -1,4 +1,5 @@
 export type RootStackParamList = {
-    PlanetList: undefined;
-    PlanetDetail: { id: string };
-  };
+  PlanetList: undefined;
+  PlanetDetail: { id: string };
+  Wishlist: undefined;
+};

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const profileStyles = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius: 5,
     paddingHorizontal: 15,
     marginBottom: 10,
     marginHorizontal: 15,

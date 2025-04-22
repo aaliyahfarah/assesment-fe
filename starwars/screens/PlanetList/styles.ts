@@ -8,10 +8,10 @@ export const listStyles = StyleSheet.create({
   },
   card: {
     backgroundColor: "#1E3E62",
-    borderRadius: 10,
+    borderRadius: 5,
     padding: 10,
     paddingLeft: 30,
-    marginBottom: 10,
+    marginBottom: 15,
     marginHorizontal: 15,
     elevation: 5, 
     shadowColor: '#000', 
