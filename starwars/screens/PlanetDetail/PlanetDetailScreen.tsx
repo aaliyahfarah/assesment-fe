@@ -3,7 +3,6 @@ import {
   ScrollView,
   Text,
   ActivityIndicator,
-  Button,
   View,
   TouchableOpacity,
 } from "react-native";
@@ -24,6 +23,7 @@ export const PlanetDetailScreen = () => {
   const navigation = useNavigation();
   const route = useRoute<DetailRouteProp>();
   const { id } = route.params;
+
   const [planet, setPlanet] = useState<Planet | null>(null);
   const [isInWishlist, setIsInWishlist] = useState(false);
 
