@@ -6,7 +6,7 @@ export const listStyles = StyleSheet.create({
     backgroundColor: 'rgb(0, 0, 0)',
     flex: 1,
   },
-  item: {
+  card: {
     backgroundColor: "#1E3E62",
     borderRadius: 10,
     padding: 10,

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { ScrollView, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../navigation/navigationTypes';// ganti sesuai lokasi
 import { getPlanetById } from '../../services/PlanetServices';
 import { Planet } from '../../types/Planet';
 import { detailStyles } from './styles';
-import { ProfileComponent } from '../../components/PlanetDetail/Profile';
+import { ProfileComponent } from '../../components/PlanetDetail/Profile/Profile';
+import { ResidentList } from '../../components/PlanetDetail/Residents/Residents';
+import { FilmList } from '../../components/PlanetDetail/Films/Films';
 
 type DetailRouteProp = RouteProp<RootStackParamList, 'PlanetDetail'>;
 
@@ -23,7 +25,6 @@ export const PlanetDetailScreen = () => {
                 headerTitle: data.name,
             });
         };
-
         fetchPlanet();
     }, [id]);
 
@@ -32,14 +33,17 @@ export const PlanetDetailScreen = () => {
     }
 
     return (
-        <View style={detailStyles.container}>
-            <Text style={detailStyles.sectionTitle}>Profile</Text>
+        <ScrollView style={detailStyles.container}>
+          <Text style={detailStyles.sectionTitle}>Profile</Text>
+          <ProfileComponent planetData={planet} />
+      
+          <Text style={detailStyles.sectionTitle}>Residents</Text>
+          <ResidentList residents={planet.residents} />
+      
+          <Text style={detailStyles.sectionTitle}>Films</Text>
+          <FilmList films={planet.films} />
 
-            <ProfileComponent planetData={planet}/>
-
-            
-
-
-        </View>
-    );
+          
+        </ScrollView>
+      );
 };

@@ -13,5 +13,6 @@ export const detailStyles = StyleSheet.create({
     fontWeight: "bold",
     color: "#FF6500",
     marginBottom: 10,
+    marginTop: 20,
   },
 });

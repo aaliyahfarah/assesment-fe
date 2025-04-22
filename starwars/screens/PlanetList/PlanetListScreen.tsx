@@ -44,7 +44,7 @@ export const PlanetListScreen: React.FC<PlanetListScreenProps> = ({ navigation }
 
   const renderFooter = () => {
     if (!isFetchingMore) return null;
-    return <ActivityIndicator size="small" color="#000" />;
+    return <ActivityIndicator size="small" color="#fff" />;
   };
 
   if (isLoading) {
@@ -67,7 +67,7 @@ export const PlanetListScreen: React.FC<PlanetListScreenProps> = ({ navigation }
               }
             }}
           >
-            <View style={listStyles.item}>
+            <View style={listStyles.card}>
               <Text style={listStyles.name}>{item.name}</Text>
               <Text style={listStyles.detail}>
                 <Icon style={listStyles.iconDetail} name="users" />
