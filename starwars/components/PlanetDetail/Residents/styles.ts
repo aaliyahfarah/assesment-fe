@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export const residentStyles = StyleSheet.create({
   container: {
     padding: 16,
     paddingTop: 20,
-    backgroundColor: 'rgb(0, 0, 0)',
+    backgroundColor: "rgb(0, 0, 0)",
     flex: 1,
   },
   card: {
@@ -24,18 +24,18 @@ export const residentStyles = StyleSheet.create({
     marginHorizontal: 15,
     marginVertical: 20,
     color: "#fff",
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   value: {
     fontSize: 14,
     color: "#fff",
-    textAlign: 'center',
+    textAlign: "center",
   },
   valueWrapper: {
     marginTop: 5,
     paddingHorizontal: 5,
-    alignItems: 'flex-start',
+    alignItems: "flex-start",
     flex: 1,
   },
   icon: {
@@ -43,7 +43,13 @@ export const residentStyles = StyleSheet.create({
     color: "#FF6500",
   },
   iconWrapper: {
-    // height: 40, 
-    alignItems: 'center',
+    alignItems: "center",
+  },
+  noData: {
+    textAlign: "center",
+    color: "rgb(153, 153, 153)",
+    fontSize: 20,
+    margin: 10,
+    fontWeight: "bold",
   },
 });

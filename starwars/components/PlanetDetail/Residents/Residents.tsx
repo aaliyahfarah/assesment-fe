@@ -32,6 +32,16 @@ export const ResidentList = ({ residents }: ResidentListProps) => {
     return <ActivityIndicator size="large" color="#fff" />;
   }
 
+  if (residentData.length === 0) {
+    return (
+      <View style={residentStyles.card}>
+        <Text style={residentStyles.noData}>
+          No data available
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <View style={residentStyles.card}>
       <FlatList

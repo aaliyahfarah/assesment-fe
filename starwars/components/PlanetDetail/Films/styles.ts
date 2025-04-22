@@ -27,5 +27,11 @@ export const filmStyles = StyleSheet.create({
     color: "#fff",
     margin: 10,
   },
-
+  noData: {
+    textAlign: "center",
+    color: "rgb(153, 153, 153)",
+    fontSize: 20,
+    margin: 10,
+    fontWeight: "bold",
+  },
 });

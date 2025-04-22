@@ -31,6 +31,16 @@ export const FilmList = ({ films }: FilmListProps) => {
     return <ActivityIndicator size="large" color="#fff" />;
   }
 
+  if (filmData.length === 0) {
+    return (
+      <View style={filmStyles.card}>
+        <Text style={filmStyles.noData}>
+          No data available
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <View style={filmStyles.card}>
       <FlatList
